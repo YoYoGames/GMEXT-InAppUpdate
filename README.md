@@ -5,7 +5,7 @@ This repository was created with the intent of presenting users with the latest 
 
 This extension will only work on Android.
 
-* Android: `source/InAppUpdate_gml/extensions/InAppUpdate/AndroidSource/Java/`
+* Android: `source/InAppUpdate_gml/extensions/InAppUpdates/AndroidSource/Java/`
 
 ## Documentation
 

@@ -13,7 +13,7 @@ This extension will only work on Android.
 
 * Check [the documentation](../../wiki)
 
-The documentation is regularly updated to ensure it contains the most current information. For those who prefer a different format, we also offer a PDF version. This PDF is directly converted from the GitHub Wiki content, ensuring consistency, although it may follow slightly behind in updates.
+The online documentation is regularly updated to ensure it contains the most current information. For those who prefer a different format, we also offer a PDF version. This PDF is directly converted from the GitHub Wiki content, ensuring consistency, although it may follow slightly behind in updates.
 
 We encourage users to refer primarily to the GitHub Wiki for the latest information and updates. The PDF version, included with the extension and within the demo project's data files, serves as a secondary, static reference.
 

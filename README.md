@@ -7,6 +7,8 @@ This extension will only work on Android.
 
 * Android: `source/InAppUpdate_gml/extensions/InAppUpdates/AndroidSource/Java/`
 
+<br>
+
 ## Documentation
 
 * Check [the documentation](../../wiki)

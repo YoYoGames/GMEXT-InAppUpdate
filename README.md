@@ -9,7 +9,7 @@ This extension will only work on Android.
 
 ## Documentation
 
-* [GitHub Wiki]((../../wiki))
+* [GitHub Wiki](../../wiki)
 
 The documentation is regularly updated to ensure it contains the most current information. For those who prefer a different format, we also offer a PDF version. This PDF is directly converted from the GitHub Wiki content, ensuring consistency, although it may follow slightly behind in updates.
 

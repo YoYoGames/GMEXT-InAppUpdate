@@ -13,6 +13,8 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
+import com.google.android.play.core.install.InstallState;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
@@ -32,6 +34,7 @@ public class InAppUpdates extends RunnerSocial {
 	private static final int UPDATE_REQUEST_CODE = 289;
 
 	AppUpdateInfo mAppUpdateInfo = null;
+	InstallStateUpdatedListener installStateUpdatedListener = null;
 
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == UPDATE_REQUEST_CODE) {
@@ -62,8 +65,27 @@ public class InAppUpdates extends RunnerSocial {
 	public void inappupdate_show(double options) {
 		AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(activity);
 		try {
+			// Start update flow
 			appUpdateManager.startUpdateFlowForResult(mAppUpdateInfo, (int) options, RunnerActivity.CurrentActivity,
 					UPDATE_REQUEST_CODE);
+
+			// Register listener for install/download updates
+			if (installStateUpdatedListener != null) {
+				appUpdateManager.unregisterListener(installStateUpdatedListener);
+				installStateUpdatedListener = null;
+			}
+			installStateUpdatedListener = new InstallStateUpdatedListener() {
+				@Override
+				public void onStateUpdate(InstallState state) {
+					int dsMapIndex = RunnerJNILib.jCreateDsMap(null, null, null);
+					RunnerJNILib.DsMapAddString(dsMapIndex, "type", "inappupdate_install_status_update");
+					RunnerJNILib.DsMapAddDouble(dsMapIndex, "install_status", (double) state.installStatus());
+					RunnerJNILib.DsMapAddDouble(dsMapIndex, "bytes_downloaded", (double) state.bytesDownloaded());
+					RunnerJNILib.DsMapAddDouble(dsMapIndex, "total_bytes_to_download", (double) state.totalBytesToDownload());
+					RunnerJNILib.CreateAsynEventWithDSMap(dsMapIndex, EVENT_OTHER_SOCIAL);
+				}
+			};
+			appUpdateManager.registerListener(installStateUpdatedListener);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -145,5 +167,16 @@ public class InAppUpdates extends RunnerSocial {
 	public void inappupdate_complete_flexible_update() {
 		AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(activity);
 		appUpdateManager.completeUpdate();
+	}
+
+    public void onDestroy() {
+        Log.i("yoyo","MobileExtension: onDestroy triggered");
+
+		// Unregister installStateUpdatedListener listener if it exists
+        if (installStateUpdatedListener != null) {
+			AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(activity);
+			appUpdateManager.unregisterListener(installStateUpdatedListener);
+			installStateUpdatedListener = null;
+		}
 	}
 }

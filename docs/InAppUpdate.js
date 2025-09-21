@@ -41,11 +41,20 @@ function inappupdate_total_bytes_to_download() {}
   
 /**
  * @func inappupdate_show
- * @desc Display a update popup 
+ * @desc Display a update popup and register a listener for install status updates.
  *
  * @event social
+ * @desc Triggered when the update flow completes (user accepts/declines)
  * @member {string} type The string value `"inappupdate_show"`
- * @member {constant.UpdateAvailability} result
+ * @member {constant.UpdateAvailability} result The result code from the update flow
+ * @event_end
+ * 
+ * @event social
+ * @desc Triggered during flexible updates to report download/install progress
+ * @member {string} type The string value `"inappupdate_install_status_update"`
+ * @member {constant.InstallStatus} install_status The current install status
+ * @member {number} bytes_downloaded Number of bytes downloaded so far
+ * @member {number} total_bytes_to_download Total bytes to download for this update
  * @event_end
  * 
  * @func_end

@@ -35,15 +35,15 @@ switch(async_load[?"type"])
 		
 		switch(async_load[?"result"])
 		{
-			case InAppUpdate_UPDATE_FAILED:
+			case InAppUpdate_UPDATE_PROMPT_FAILED:
 				show_debug_message("inappupdate_show Failed")
 			break
 		
-			case InAppUpdate_UPDATE_OK:
+			case InAppUpdate_UPDATE_PROMPT_OK:
 				show_debug_message("inappupdate_show OK")
 			break
 		
-			case InAppUpdate_UPDATE_CANCELED:
+			case InAppUpdate_UPDATE_PROMPT_CANCELED:
 				show_debug_message("inappupdate_show Canceled")
 			break
 		}

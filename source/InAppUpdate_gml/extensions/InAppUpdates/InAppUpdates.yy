@@ -33,6 +33,9 @@
         {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_OK","hidden":false,"name":"InAppUpdate_UPDATE_OK","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"-1",},
         {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_FAILED","hidden":false,"name":"InAppUpdate_UPDATE_FAILED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"1",},
         {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_CANCELED","hidden":false,"name":"InAppUpdate_UPDATE_CANCELED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"0",},
+        {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_PROMPT_OK","hidden":false,"name":"InAppUpdate_UPDATE_PROMPT_OK","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"-1",},
+        {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_PROMPT_FAILED","hidden":false,"name":"InAppUpdate_UPDATE_PROMPT_FAILED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"1",},
+        {"$GMExtensionConstant":"","%Name":"InAppUpdate_UPDATE_PROMPT_CANCELED","hidden":false,"name":"InAppUpdate_UPDATE_PROMPT_CANCELED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"0",},
       ],"copyToTargets":-1,"filename":"InAppUpdates.ext","final":"","functions":[
         {"$GMExtensionFunction":"","%Name":"inappupdate_request_info","argCount":0,"args":[],"documentation":"","externalName":"inappupdate_request_info","help":"inappupdate_request_info()","hidden":false,"kind":4,"name":"inappupdate_request_info","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
         {"$GMExtensionFunction":"","%Name":"inappupdate_show","argCount":0,"args":[2,],"documentation":"","externalName":"inappupdate_show","help":"inappupdate_show(option)","hidden":false,"kind":4,"name":"inappupdate_show","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},

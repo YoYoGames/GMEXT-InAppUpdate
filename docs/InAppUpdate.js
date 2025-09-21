@@ -46,7 +46,7 @@ function inappupdate_total_bytes_to_download() {}
  * @event social
  * @desc Triggered when the update flow completes (user accepts/declines)
  * @member {string} type The string value `"inappupdate_show"`
- * @member {constant.UpdateAvailability} result The result code from the update flow
+ * @member {constant.UpdatePromptResult} result The result code from the update flow
  * @event_end
  * 
  * @event social
@@ -148,6 +148,14 @@ function inappupdate_complete_flexible_update() {}
  * @member InAppUpdate_UPDATE_AVAILABLE
  * @const_end
  */ 
+
+/**
+ * @const UpdatePromptResult
+ * @member InAppUpdate_UPDATE_PROMPT_OK
+ * @member InAppUpdate_UPDATE_PROMPT_FAILED
+ * @member InAppUpdate_UPDATE_PROMPT_CANCELED
+ * @const_end
+ */ 
  
 /**
  * @const InstallStatus
@@ -191,6 +199,7 @@ function inappupdate_complete_flexible_update() {}
  * @section_const
  * @ref AppUpdateType
  * @ref UpdateAvailability
+ * @ref UpdatePromptResult
  * @ref InstallStatus
  * @section_end
  *

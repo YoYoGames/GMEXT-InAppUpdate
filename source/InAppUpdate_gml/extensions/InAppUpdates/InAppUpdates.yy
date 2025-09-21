@@ -14,7 +14,7 @@
   "copyToTargets":8,
   "description":"",
   "exportToGame":true,
-  "extensionVersion":"0.0.1",
+  "extensionVersion":"0.0.2",
   "files":[
     {"$GMExtensionFile":"v1","%Name":"InAppUpdates.ext","constants":[
         {"$GMExtensionConstant":"","%Name":"InAppUpdate_FLEXIBLE","hidden":false,"name":"InAppUpdate_FLEXIBLE","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"0",},

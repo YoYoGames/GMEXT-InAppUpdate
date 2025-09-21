@@ -116,6 +116,14 @@ function inappupdate_bytes_downloaded() {}
 function inappupdate_update_availability() {}
 
 
+/**
+ * @func inappupdate_complete_flexible_update
+ * @desc Completes a flexible in-app update that has finished downloading and triggers the installation process. The system will automatically restart the app once installation is complete. This function should only be called after receiving confirmation that a flexible update has been successfully downloaded (install status indicates download completion). Calling this function when no update is ready will have no effect.
+ * @func_end
+ */
+function inappupdate_complete_flexible_update() {}
+
+
 
 /**
  * @const AppUpdateType
@@ -167,6 +175,7 @@ function inappupdate_update_availability() {}
  * @ref inappupdate_install_status
  * @ref inappupdate_bytes_downloaded
  * @ref inappupdate_update_availability
+ * @ref inappupdate_complete_flexible_update
  *
  * @section_end
  *

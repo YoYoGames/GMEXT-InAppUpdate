@@ -141,4 +141,9 @@ public class InAppUpdates extends RunnerSocial {
 
 		return (double) mAppUpdateInfo.updatePriority();
 	}
+
+	public void inappupdate_complete_flexible_update() {
+		AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(activity);
+		appUpdateManager.completeUpdate();
+	}
 }

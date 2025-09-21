@@ -1,19 +1,19 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"In-App Updates Demo","order":1,"path":"folders/In-App Updates Demo.yy",},
-    {"name":"Extensions","order":6,"path":"folders/In-App Updates/Extensions.yy",},
     {"name":"Objects","order":5,"path":"folders/In-App Updates Demo/Objects.yy",},
     {"name":"Rooms","order":6,"path":"folders/In-App Updates Demo/Rooms.yy",},
+    {"name":"Extensions","order":6,"path":"folders/In-App Updates/Extensions.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"Font_YoYo_20","order":1,"path":"fonts/Font_YoYo_20/Font_YoYo_20.yy",},
-    {"name":"Obj_AppUpdates","order":2,"path":"objects/Obj_AppUpdates/Obj_AppUpdates.yy",},
-    {"name":"Obj_YoYo_textbox","order":2,"path":"objects/Obj_YoYo_textbox/Obj_YoYo_textbox.yy",},
-    {"name":"Obj_AppUpdateInfo_Show_Immediate","order":1,"path":"objects/Obj_AppUpdateInfo_Show_Immediate/Obj_AppUpdateInfo_Show_Immediate.yy",},
-    {"name":"Obj_YoYo_text","order":1,"path":"objects/Obj_YoYo_text/Obj_YoYo_text.yy",},
-    {"name":"Obj_AppUpdates_RequestInfo","order":3,"path":"objects/Obj_AppUpdates_RequestInfo/Obj_AppUpdates_RequestInfo.yy",},
     {"name":"Font_YoYo_30","order":2,"path":"fonts/Font_YoYo_30/Font_YoYo_30.yy",},
-    {"name":"Spr_YoYo_textbox","order":2,"path":"sprites/Spr_YoYo_textbox/Spr_YoYo_textbox.yy",},
+    {"name":"Obj_AppUpdateInfo_Show_Immediate","order":1,"path":"objects/Obj_AppUpdateInfo_Show_Immediate/Obj_AppUpdateInfo_Show_Immediate.yy",},
+    {"name":"Obj_AppUpdates_RequestInfo","order":3,"path":"objects/Obj_AppUpdates_RequestInfo/Obj_AppUpdates_RequestInfo.yy",},
+    {"name":"Obj_AppUpdates","order":2,"path":"objects/Obj_AppUpdates/Obj_AppUpdates.yy",},
+    {"name":"Obj_YoYo_text","order":1,"path":"objects/Obj_YoYo_text/Obj_YoYo_text.yy",},
+    {"name":"Obj_YoYo_textbox","order":2,"path":"objects/Obj_YoYo_textbox/Obj_YoYo_textbox.yy",},
     {"name":"Spr_YoYo_button","order":1,"path":"sprites/Spr_YoYo_button/Spr_YoYo_button.yy",},
+    {"name":"Spr_YoYo_textbox","order":2,"path":"sprites/Spr_YoYo_textbox/Spr_YoYo_textbox.yy",},
   ],
 }

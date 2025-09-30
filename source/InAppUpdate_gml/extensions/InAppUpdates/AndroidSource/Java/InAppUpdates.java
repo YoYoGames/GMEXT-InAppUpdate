@@ -170,8 +170,6 @@ public class InAppUpdates extends RunnerSocial {
 	}
 
     public void onDestroy() {
-        Log.i("yoyo","MobileExtension: onDestroy triggered");
-
 		// Unregister installStateUpdatedListener listener if it exists
         if (installStateUpdatedListener != null) {
 			AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(activity);

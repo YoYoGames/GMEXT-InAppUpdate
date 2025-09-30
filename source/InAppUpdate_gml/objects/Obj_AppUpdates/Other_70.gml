@@ -100,6 +100,7 @@ switch(async_load[?"type"])
 				show_debug_message("Install Status: DOWNLOADED");
 				
 				// Download Complete - We can now call inappupdate_complete_flexible_update(), but we should ask the user for confirmation before doing so
+                //inappupdate_complete_flexible_update()
 			break;
 		}
 	break

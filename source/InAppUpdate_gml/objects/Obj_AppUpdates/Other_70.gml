@@ -35,18 +35,72 @@ switch(async_load[?"type"])
 		
 		switch(async_load[?"result"])
 		{
-			case InAppUpdate_UPDATE_FAILED:
+			case InAppUpdate_UPDATE_PROMPT_FAILED:
 				show_debug_message("inappupdate_show Failed")
 			break
 		
-			case InAppUpdate_UPDATE_OK:
+			case InAppUpdate_UPDATE_PROMPT_OK:
 				show_debug_message("inappupdate_show OK")
 			break
 		
-			case InAppUpdate_UPDATE_CANCELED:
+			case InAppUpdate_UPDATE_PROMPT_CANCELED:
 				show_debug_message("inappupdate_show Canceled")
 			break
 		}
 		
+	break
+	
+	case "inappupdate_install_status_update":
+		// Get install status info
+		var _installStatus = ds_map_find_value(async_load, "install_status");
+		var _bytesDownloaded = ds_map_find_value(async_load, "bytes_downloaded");
+		var _bytesTotal = ds_map_find_value(async_load, "total_bytes_to_download");
+		
+		// React to install status
+		switch (_installStatus)
+		{
+			case InAppUpdate_UNKNOWN:
+				show_debug_message("Install Status: UNKNOWN");
+			break;
+			
+			case InAppUpdate_PENDING:
+				show_debug_message("Install Status: PENDING");
+			break;
+			
+			case InAppUpdate_DOWNLOADING:
+				// Get the download progress
+				var _percent = 0;
+				
+				if (_bytesTotal > 0)
+				{
+					_percent = (_bytesDownloaded / _bytesTotal) * 100;
+				}
+				
+				// Print debug info to console
+				show_debug_message("Install Status: DOWNLOADING " + string(_percent) + "%");
+			break;
+			
+			case InAppUpdate_INSTALLING:
+				show_debug_message("Install Status: INSTALLING");
+			break;
+			
+			case InAppUpdate_INSTALLED:
+				show_debug_message("Install Status: INSTALLED");
+			break;
+			
+			case InAppUpdate_FAILED:
+				show_debug_message("Install Status: FAILED");
+			break;
+			
+			case InAppUpdate_CANCELED:
+				show_debug_message("Install Status: CANCELED");
+			break;
+			
+			case InAppUpdate_DOWNLOADED:
+				show_debug_message("Install Status: DOWNLOADED");
+				
+				// Download Complete - We can now call inappupdate_complete_flexible_update(), but we should ask the user for confirmation before doing so
+			break;
+		}
 	break
 }

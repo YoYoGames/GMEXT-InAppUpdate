@@ -41,11 +41,20 @@ function inappupdate_total_bytes_to_download() {}
   
 /**
  * @func inappupdate_show
- * @desc Display a update popup 
+ * @desc Display a update popup and register a listener for install status updates.
  *
  * @event social
+ * @desc Triggered when the update flow completes (user accepts/declines)
  * @member {string} type The string value `"inappupdate_show"`
- * @member {constant.UpdateAvailability} result
+ * @member {constant.UpdatePromptResult} result The result code from the update flow
+ * @event_end
+ * 
+ * @event social
+ * @desc Triggered during flexible updates to report download/install progress
+ * @member {string} type The string value `"inappupdate_install_status_update"`
+ * @member {constant.InstallStatus} install_status The current install status
+ * @member {number} bytes_downloaded Number of bytes downloaded so far
+ * @member {number} total_bytes_to_download Total bytes to download for this update
  * @event_end
  * 
  * @func_end
@@ -116,6 +125,14 @@ function inappupdate_bytes_downloaded() {}
 function inappupdate_update_availability() {}
 
 
+/**
+ * @func inappupdate_complete_flexible_update
+ * @desc Completes a flexible in-app update that has finished downloading and triggers the installation process. The system will automatically restart the app once installation is complete. This function should only be called after receiving confirmation that a flexible update has been successfully downloaded (install status indicates download completion). Calling this function when no update is ready will have no effect.
+ * @func_end
+ */
+function inappupdate_complete_flexible_update() {}
+
+
 
 /**
  * @const AppUpdateType
@@ -129,6 +146,14 @@ function inappupdate_update_availability() {}
  * @member InAppUpdate_UNKNOWN
  * @member InAppUpdate_UPDATE_NOT_AVAILABLE
  * @member InAppUpdate_UPDATE_AVAILABLE
+ * @const_end
+ */ 
+
+/**
+ * @const UpdatePromptResult
+ * @member InAppUpdate_UPDATE_PROMPT_OK
+ * @member InAppUpdate_UPDATE_PROMPT_FAILED
+ * @member InAppUpdate_UPDATE_PROMPT_CANCELED
  * @const_end
  */ 
  
@@ -167,12 +192,14 @@ function inappupdate_update_availability() {}
  * @ref inappupdate_install_status
  * @ref inappupdate_bytes_downloaded
  * @ref inappupdate_update_availability
+ * @ref inappupdate_complete_flexible_update
  *
  * @section_end
  *
  * @section_const
  * @ref AppUpdateType
  * @ref UpdateAvailability
+ * @ref UpdatePromptResult
  * @ref InstallStatus
  * @section_end
  *

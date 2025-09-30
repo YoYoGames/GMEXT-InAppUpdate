@@ -3,7 +3,7 @@
   "%Name":"InAppUpdates",
   "androidactivityinject":"",
   "androidclassname":"InAppUpdates",
-  "androidcodeinjection":"\r\n<YYAndroidGradleDependencies>\r\n    implementation 'com.google.android.play:app-update:2.0.0'\r\n    implementation 'com.google.android.play:app-update-ktx:2.0.0'\r\n</YYAndroidGradleDependencies>\r\n",
+  "androidcodeinjection":"\r\n<YYAndroidGradleDependencies>\r\n    implementation 'com.google.android.play:app-update:2.1.0'\r\n    implementation 'com.google.android.play:app-update-ktx:2.0.0'\r\n</YYAndroidGradleDependencies>\r\n",
   "androidinject":"",
   "androidmanifestinject":"",
   "androidPermissions":[],

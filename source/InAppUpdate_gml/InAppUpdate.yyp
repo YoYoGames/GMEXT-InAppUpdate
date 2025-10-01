@@ -21,7 +21,9 @@
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/YoYo Extensions Assets/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"GMEXT-InAppUpdate.html","CopyToMask":0,"filePath":"datafiles","name":"GMEXT-InAppUpdate.html","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{

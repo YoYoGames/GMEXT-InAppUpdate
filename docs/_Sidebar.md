@@ -1,1 +1,1 @@
-* ### [InAppUpdate Extension](Home)
+* ### [InAppUpdate Extension](home)

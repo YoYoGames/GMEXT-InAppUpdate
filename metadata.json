@@ -1,0 +1,36 @@
+{
+    "gitHubUrl": "https://github.com/YoYoGames/GMEXT-InAppUpdate",
+    "projectFile": "source/InAppUpdate_gml/InAppUpdate.yyp",
+    "projectVersion": "LTS22",
+    "releaseTemplate": "template/release_body.md",
+    "extensionMetaData": [
+        {
+            "extensionFile": "source/InAppUpdate_gml/extensions/InAppUpdates/InAppUpdates.yy",
+            "packageId": "com.yoyogames.inappupdatesext",
+            "packageName": "InAppUpdates Ext",
+            "packageVersion": "0.0.2",
+            "packageFormat": "LTS22",
+            "includeFolders": null,
+            "includeResources": null,
+            "excludeFolders": null,
+            "excludeResources": null,
+            "postRemovals": [
+                "**/.vs/",
+                "**/.vsc/",
+                "**/*.exp",
+                "**/*.ilk",
+                "**/*.lib",
+                "**/*.pdb",
+                "**/*.exp",
+                "**/*.exe",
+                "**/Debug/",
+                "**/Release/",
+                ".DS_Store",
+                "*.user",
+                "xcuserdata/"
+            ]
+        }
+
+    ],
+    "documentationFolder": null
+}

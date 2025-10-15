@@ -53,8 +53,8 @@ function inappupdate_total_bytes_to_download() {}
  * @desc Triggered during flexible updates to report download/install progress
  * @member {string} type The string value `"inappupdate_install_status_update"`
  * @member {constant.InstallStatus} install_status The current install status
- * @member {number} bytes_downloaded Number of bytes downloaded so far
- * @member {number} total_bytes_to_download Total bytes to download for this update
+ * @member {real} bytes_downloaded Number of bytes downloaded so far
+ * @member {real} total_bytes_to_download Total bytes to download for this update
  * @event_end
  * 
  * @func_end

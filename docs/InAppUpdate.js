@@ -111,6 +111,8 @@ function inappupdate_install_status() {}
 /**
  * @func inappupdate_bytes_downloaded
  * @desc Returns the number of bytes downloaded so far.
+ * 
+ * @returns {real}
  * @func_end
  */
 function inappupdate_bytes_downloaded() {}

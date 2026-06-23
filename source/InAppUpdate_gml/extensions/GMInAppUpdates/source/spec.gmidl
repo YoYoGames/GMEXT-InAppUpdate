@@ -1,0 +1,89 @@
+[gml_api]
+module GMInAppUpdates;
+
+// Structured callback outputs use GMExtWire.StructStream.
+// Each structured callback receives one result struct.
+
+[global, bind = typed_gml]
+function inappupdate_request_info(callback: func): unit;
+
+[global, bind = typed_gml]
+function inappupdate_show(
+    [type_hint=`InAppUpdateType`] update_type,
+    callback: func,
+    install_status_callback: func
+): unit;
+
+[global, bind = typed_gml]
+function inappupdate_available_version_code(): real;
+
+[global, bind = typed_gml]
+function inappupdate_bytes_downloaded(): real;
+
+[global, bind = typed_gml]
+function inappupdate_client_version_staleness_days(): real;
+
+[global, bind = typed_gml]
+function inappupdate_install_status(): real;
+
+[global, bind = typed_gml]
+function inappupdate_is_update_type_allowed(
+    [type_hint=`InAppUpdateType`] update_type
+): bool;
+
+[global, bind = typed_gml]
+function inappupdate_package_name(): string;
+
+[global, bind = typed_gml]
+function inappupdate_total_bytes_to_download(): real;
+
+[global, bind = typed_gml]
+function inappupdate_update_availability(): real;
+
+[global, bind = typed_gml]
+function inappupdate_info_availability(): bool;
+
+[global, bind = typed_gml]
+function inappupdate_update_priority(): real;
+
+[global, bind = typed_gml]
+function inappupdate_complete_flexible_update(
+    callback: func
+): unit;
+
+[global, bind = typed_gml]
+enum InAppUpdateType:int32
+{
+    Flexible = 0,
+    Immediate = 1,
+}
+
+[global, bind = typed_gml]
+enum InAppUpdateAvailability:int32
+{
+    Unknown = 0,
+    UpdateNotAvailable = 1,
+    UpdateAvailable = 2,
+    DeveloperTriggeredUpdateInProgress = 3,
+}
+
+[global, bind = typed_gml]
+enum InAppUpdateInstallStatus:int32
+{
+    Unknown = 0,
+    Pending = 1,
+    Downloading = 2,
+    Installing = 3,
+    Installed = 4,
+    Failed = 5,
+    Cancelled = 6,
+    Downloaded = 11,
+}
+
+[global, bind = typed_gml]
+enum InAppUpdateActivityResult:int32
+{
+    Accepted = -1,
+    Cancelled = 0,
+    Failed = 1,
+}

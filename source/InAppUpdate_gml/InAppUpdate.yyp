@@ -10,6 +10,7 @@
   },
   "defaultScriptType":0,
   "Folders":[
+    {"$GMFolder":"","%Name":"ExtensionCore","folderPath":"folders/ExtensionCore.yy","name":"ExtensionCore","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"In-App Updates Demo","folderPath":"folders/In-App Updates Demo.yy","name":"In-App Updates Demo","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/In-App Updates Demo/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/In-App Updates Demo/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -27,11 +28,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1400.0.901",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"InAppUpdate",
   "resources":[
-    {"id":{"name":"InAppUpdates","path":"extensions/InAppUpdates/InAppUpdates.yy",},},
+    {"id":{"name":"ExtensionCore","path":"extensions/ExtensionCore/ExtensionCore.yy",},},
+    {"id":{"name":"GMInAppUpdates","path":"extensions/GMInAppUpdates/GMInAppUpdates.yy",},},
     {"id":{"name":"Font_YoYo_15","path":"fonts/Font_YoYo_15/Font_YoYo_15.yy",},},
     {"id":{"name":"Font_YoYo_20","path":"fonts/Font_YoYo_20/Font_YoYo_20.yy",},},
     {"id":{"name":"Font_YoYo_30","path":"fonts/Font_YoYo_30/Font_YoYo_30.yy",},},
@@ -43,6 +45,8 @@
     {"id":{"name":"Obj_YoYo_text","path":"objects/Obj_YoYo_text/Obj_YoYo_text.yy",},},
     {"id":{"name":"Obj_YoYo_textbox","path":"objects/Obj_YoYo_textbox/Obj_YoYo_textbox.yy",},},
     {"id":{"name":"Room_AppUpdates","path":"rooms/Room_AppUpdates/Room_AppUpdates.yy",},},
+    {"id":{"name":"ExtensionCore_api","path":"scripts/ExtensionCore_api/ExtensionCore_api.yy",},},
+    {"id":{"name":"GMInAppUpdates_API","path":"scripts/GMInAppUpdates_API/GMInAppUpdates_API.yy",},},
     {"id":{"name":"Spr_YoYo_Background","path":"sprites/Spr_YoYo_Background/Spr_YoYo_Background.yy",},},
     {"id":{"name":"Spr_YoYo_button","path":"sprites/Spr_YoYo_button/Spr_YoYo_button.yy",},},
     {"id":{"name":"Spr_YoYo_textbox","path":"sprites/Spr_YoYo_textbox/Spr_YoYo_textbox.yy",},},

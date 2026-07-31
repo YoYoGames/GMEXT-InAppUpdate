@@ -1,55 +1,9 @@
 [gml_api]
 module GMInAppUpdates;
 
-// Structured callback outputs use GMExtWire.StructStream.
-// Each structured callback receives one result struct.
-
-[global, bind = typed_gml]
-function inappupdate_request_info(callback: func): unit;
-
-[global, bind = typed_gml]
-function inappupdate_show(
-    [type_hint=`InAppUpdateType`] update_type,
-    callback: func,
-    install_status_callback: func
-): unit;
-
-[global, bind = typed_gml]
-function inappupdate_available_version_code(): real;
-
-[global, bind = typed_gml]
-function inappupdate_bytes_downloaded(): real;
-
-[global, bind = typed_gml]
-function inappupdate_client_version_staleness_days(): real;
-
-[global, bind = typed_gml]
-function inappupdate_install_status(): real;
-
-[global, bind = typed_gml]
-function inappupdate_is_update_type_allowed(
-    [type_hint=`InAppUpdateType`] update_type
-): bool;
-
-[global, bind = typed_gml]
-function inappupdate_package_name(): string;
-
-[global, bind = typed_gml]
-function inappupdate_total_bytes_to_download(): real;
-
-[global, bind = typed_gml]
-function inappupdate_update_availability(): real;
-
-[global, bind = typed_gml]
-function inappupdate_info_availability(): bool;
-
-[global, bind = typed_gml]
-function inappupdate_update_priority(): real;
-
-[global, bind = typed_gml]
-function inappupdate_complete_flexible_update(
-    callback: func
-): unit;
+// -----------------------------------------------------------------------------
+// Typed enums
+// -----------------------------------------------------------------------------
 
 [global, bind = typed_gml]
 enum InAppUpdateType:int32
@@ -83,7 +37,128 @@ enum InAppUpdateInstallStatus:int32
 [global, bind = typed_gml]
 enum InAppUpdateActivityResult:int32
 {
+    Unknown = -2,
     Accepted = -1,
     Cancelled = 0,
     Failed = 1,
 }
+
+// -----------------------------------------------------------------------------
+// Callback result shapes
+// -----------------------------------------------------------------------------
+
+// Result passed to inappupdate_request_info(callback).
+[global]
+class `[[InAppUpdateInfoResult]]` prototype Object
+{
+    [field] property success : bool { get; set; }
+    [field] property info_available : bool { get; set; }
+    [field] property available_version_code : int32 { get; set; }
+    [field] property bytes_downloaded : int64 { get; set; }
+    [field] property client_version_staleness_days : int32 { get; set; }
+    [field,type_hint=`InAppUpdateInstallStatus`] property install_status : gmval { get; set; }
+    [field] property package_name : string { get; set; }
+    [field] property total_bytes_to_download : int64 { get; set; }
+    [field,type_hint=`InAppUpdateAvailability`] property update_availability : gmval { get; set; }
+    [field] property update_priority : int32 { get; set; }
+    [field] property error_message : string { get; set; }
+}
+
+// Result passed to the main callback of inappupdate_show(...).
+[global]
+class `[[InAppUpdateFlowResult]]` prototype Object
+{
+    [field] property success : bool { get; set; }
+    [field,type_hint=`InAppUpdateActivityResult`] property result : gmval { get; set; }
+    [field] property accepted : bool { get; set; }
+    [field] property cancelled : bool { get; set; }
+    [field] property failed : bool { get; set; }
+    [field] property error_message : string { get; set; }
+}
+
+// Result passed repeatedly to install_status_callback.
+[global]
+class `[[InAppUpdateInstallStateResult]]` prototype Object
+{
+    [field] property success : bool { get; set; }
+    [field,type_hint=`InAppUpdateInstallStatus`] property install_status : gmval { get; set; }
+    [field] property bytes_downloaded : int64 { get; set; }
+    [field] property total_bytes_to_download : int64 { get; set; }
+    [field] property install_error_code : int32 { get; set; }
+    [field] property package_name : string { get; set; }
+    [field] property error_message : string { get; set; }
+}
+
+// Result passed to inappupdate_complete_flexible_update(callback).
+[global]
+class `[[InAppUpdateCompleteResult]]` prototype Object
+{
+    [field] property success : bool { get; set; }
+    [field] property error_message : string { get; set; }
+}
+
+// -----------------------------------------------------------------------------
+// Async operations
+// -----------------------------------------------------------------------------
+
+// callback(InAppUpdateInfoResult)
+[global, bind = typed_gml]
+function inappupdate_request_info(callback: func): unit;
+
+// callback(InAppUpdateFlowResult)
+// install_status_callback(InAppUpdateInstallStateResult)
+[global, bind = typed_gml]
+function inappupdate_show(
+    [type_hint=`InAppUpdateType`] update_type: gmval,
+    callback: func,
+    install_status_callback: func
+): unit;
+
+// callback(InAppUpdateCompleteResult)
+[global, bind = typed_gml]
+function inappupdate_complete_flexible_update(
+    callback: func
+): unit;
+
+// -----------------------------------------------------------------------------
+// Cached synchronous information
+// -----------------------------------------------------------------------------
+
+// Returns -4 when no AppUpdateInfo is cached.
+[global, bind = typed_gml]
+function inappupdate_available_version_code(): int32;
+
+// Returns -4 when no AppUpdateInfo is cached.
+[global, bind = typed_gml]
+function inappupdate_bytes_downloaded(): int64;
+
+// Returns -4 when no AppUpdateInfo is cached.
+// Returns -1 when Google Play does not provide a staleness value.
+[global, bind = typed_gml]
+function inappupdate_client_version_staleness_days(): int32;
+
+[global, bind = typed_gml, type_hint=`InAppUpdateInstallStatus`]
+function inappupdate_install_status(): gmval;
+
+[global, bind = typed_gml]
+function inappupdate_is_update_type_allowed(
+    [type_hint=`InAppUpdateType`]update_type: gmval
+): bool;
+
+[global, bind = typed_gml]
+function inappupdate_package_name(): string;
+
+// Returns -4 when no AppUpdateInfo is cached.
+[global, bind = typed_gml]
+function inappupdate_total_bytes_to_download(): int64;
+
+[global, bind = typed_gml, type_hint=`InAppUpdateAvailability`]
+function inappupdate_update_availability(): gmval;
+
+[global, bind = typed_gml]
+function inappupdate_info_availability(): bool;
+
+// Google Play update priority is between 0 and 5.
+// Returns -4 when no AppUpdateInfo is cached.
+[global, bind = typed_gml]
+function inappupdate_update_priority(): int32;

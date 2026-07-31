@@ -4,6 +4,7 @@ package ${YYAndroidPackageName}.enums;
 
 public enum InAppUpdateActivityResult
 {
+    Unknown((int)-2),
     Accepted((int)-1),
     Cancelled((int)0),
     Failed((int)1);
@@ -21,6 +22,8 @@ public enum InAppUpdateActivityResult
     {
         switch (v)
         {
+            case -2:
+                return InAppUpdateActivityResult.Unknown;
             case -1:
                 return InAppUpdateActivityResult.Accepted;
             case 0:
